@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Main Page</title>
+  </head>
+  <body>
+    <h1>Welcome to the Main Page</h1>
+
+    <a href="./PrivacyPolicy/index.html">Privacy Policy</a> |
+    <a href="./TermsOfService/index.html">Terms of Service</a>
+
+    <br /><br />
+
+    <a id="tiktok-login" href="#">
+      <img src="image (1).jpg" alt="TikTok logo" />
+      Continue With TikTok
+    </a>
+
+    <script>
+      const client_key = "aw0c3fhti11nykb0";
+      const redirectUri = encodeURIComponent(
+        "https://aarohisolutions.netlify.app"
+      );
+      const scopes = [
+        "user.info.basic",
+        "user.info.profile",
+        "user.info.stats",
+        "video.publish",
+        "video.upload",
+        "video.list",
+      ];
+      const authUrl =
+        `https://www.tiktok.com/v2/auth/authorize/` +
+        `?client_key=${client_key}` +
+        `&scope=${scopes.join("%20")}` +
+        `&response_type=code` +
+        `&redirect_uri=${redirectUri}`;
+      document.getElementById("tiktok-login").href = authUrl;
+    </script>
+  </body>
+</html>
